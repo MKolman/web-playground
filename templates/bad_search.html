@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+    Please search for what you are looking for:
+    <form method="GET">
+        <input type="text" name="search" value="{{search or ""}}" class="search_input"/>
+        <input type="submit" value="GO!"/>
+    </form>
+</div>
+<div>
+    You searched for <b>{{search|safe}}</b>
+</div>
+<div>
+    <a href="#"> Link1 </a><br/>
+    <a href="#"> Link2 </a><br/>
+    <a href="#"> Link3 </a><br/>
+    <a href="#"> Link4 </a><br/>
+    <a href="#"> Link5 </a><br/>
+</div>
+{% endblock %}

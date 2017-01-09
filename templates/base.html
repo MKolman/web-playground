@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title> {% block head %}XSS {% endblock %} </title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+    <script src="/static/js/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="menu">
+            <img class="logo" src="/static/img/fmf_logo.png" alt="fmflogo"/>
+            <h1> XSS, XSRF and other letters</h1>
+            <br/>
+            <h2> Workshop on FMF </h2>
+        </div>
+        <div class="sidebar">
+            <a href="{{ url_for('bad_search') }}"> Search </a>
+            <a href="{{ url_for('bad_search') }}"> Search </a>
+            <a href="{{ url_for('bad_search') }}"> Search </a>
+        </div>
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div class="footer">
+            Made By Maks Kolman
+        </div>
+    </div>
+</body>
+</html>

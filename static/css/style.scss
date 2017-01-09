@@ -1,0 +1,105 @@
+$page-width: 900px;
+$sidebar-width: 200px;
+$padding-width: 30px;
+$white: #F7FFFA;
+$main: #98FFC0;
+$dark: #0A632D;
+$acclight: #FF9C96;
+$accdark: #B21F17;
+
+$white: #D7CEC7;
+$dark: #565656;
+$main: #C09f80;
+$accdark: #76323F;
+
+body {
+  background-color: $white;
+  color: $dark;
+  font-family: 'Helvetica';
+}
+input[type="submit"], button {
+  background-color: $acclight;
+  color: $dark;
+  padding: 4px 6px;
+  border: none;
+}
+input[type="text"] {
+  color: $dark;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border: 1px solid $dark;
+}
+input[type="text"]:focus {
+  border-color: $main;
+}
+
+body > div.container {
+  padding: 0px;
+  background-color: white;
+  width: $page-width;
+  margin: auto;
+  margin-top: $padding-width;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+
+
+  .menu {
+    width: $page-width - 2 * $padding-width;
+    height: 100px;
+    padding: 0 $padding-width $padding-width/2 $padding-width;
+    // background-color: green;
+
+    img.logo {
+      height: 100%;
+      float: left;
+    }
+    h1, h2, h3, h4, h5 {
+      display: inline-block;
+      margin-top: 15px;
+      margin-bottom: 0;
+      margin-left: $padding-width;
+      color: $accdark;
+    }
+  }
+
+  .sidebar {
+    width: $sidebar-width;
+    min-height: 100px;
+    float: left;
+    a {
+      display: inline-block;
+      text-align: left;
+      text-decoration: none;
+      color: $dark;
+      // border: solid 1px $dark;
+
+      width: $sidebar-width - $padding-width;
+      margin-left: $padding-width;
+      // margin-bottom: -1px;
+      padding-top: 5px;
+
+      transition: 0.1s color, 0.1s margin-left;
+    }
+    a:hover {
+      color: $accdark;
+      // border-color: $acclight;
+      background-color: $white;
+      // margin-left: $padding-width + 10px;
+    }
+  }
+
+  .content {
+    float: right;
+    width: $page-width - $sidebar-width - $padding-width;
+    // background-color: #f5fff5;
+    padding-left: $padding-width;
+  }
+
+  .footer {
+    clear: both;
+    margin-left: $padding-width;
+    margin-right: $padding-width;
+    padding: $padding-width/2 0 $padding-width/2 0;
+    border-top: 1px solid $dark;
+  }
+}
+

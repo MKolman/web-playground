@@ -1,0 +1,68 @@
+body {
+  background-color: #D7CEC7;
+  color: #565656;
+  font-family: 'Helvetica'; }
+
+input[type="submit"], button {
+  background-color: #FF9C96;
+  color: #565656;
+  padding: 4px 6px;
+  border: none; }
+
+input[type="text"] {
+  color: #565656;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border: 1px solid #565656; }
+
+input[type="text"]:focus {
+  border-color: #C09f80; }
+
+body > div.container {
+  padding: 0px;
+  background-color: white;
+  width: 900px;
+  margin: auto;
+  margin-top: 30px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
+  body > div.container .menu {
+    width: 840px;
+    height: 100px;
+    padding: 0 30px 15px 30px; }
+    body > div.container .menu img.logo {
+      height: 100%;
+      float: left; }
+    body > div.container .menu h1, body > div.container .menu h2, body > div.container .menu h3, body > div.container .menu h4, body > div.container .menu h5 {
+      display: inline-block;
+      margin-top: 15px;
+      margin-bottom: 0;
+      margin-left: 30px;
+      color: #76323F; }
+  body > div.container .sidebar {
+    width: 200px;
+    min-height: 100px;
+    float: left; }
+    body > div.container .sidebar a {
+      display: inline-block;
+      text-align: left;
+      text-decoration: none;
+      color: #565656;
+      width: 170px;
+      margin-left: 30px;
+      padding-top: 5px;
+      transition: 0.1s color, 0.1s margin-left; }
+    body > div.container .sidebar a:hover {
+      color: #76323F;
+      background-color: #D7CEC7; }
+  body > div.container .content {
+    float: right;
+    width: 670px;
+    padding-left: 30px; }
+  body > div.container .footer {
+    clear: both;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 15px 0 15px 0;
+    border-top: 1px solid #565656; }
+
+/*# sourceMappingURL=style.css.map */
