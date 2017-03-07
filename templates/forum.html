@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="search">
+    <form method="GET">
+        <input placeholder="Text here" type="text" name="search" value="{{search or ''}}" class="search_input"/>
+        <input type="submit" value="Post"/>
+    </form>
+</div>
+<div>
+ Post here
+</div>
+{% endblock %}

@@ -8,14 +8,17 @@
 
     <div class="container">
         <div class="menu">
-            <img class="logo" src="/static/img/fmf_logo.png" alt="fmflogo"/>
+            <a href="{{ url_for('root') }} ">
+                <img class="logo" src="/static/img/fmf_logo.png" alt="fmflogo"/>
+            </a>
             <h1> XSS, XSRF and other letters</h1>
             <br/>
             <h2> Workshop on FMF </h2>
         </div>
+        {# <hr> #}
         <div class="sidebar">
             <a href="{{ url_for('bad_search') }}"> Search </a>
-            <a href="{{ url_for('bad_search') }}"> Search </a>
+            <a href="{{ url_for('forum') }}"> Forum </a>
             <a href="{{ url_for('bad_search') }}"> Search </a>
         </div>
         <div class="content">

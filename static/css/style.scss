@@ -12,6 +12,13 @@ $dark: #565656;
 $main: #C09f80;
 $accdark: #76323F;
 
+$white: #f1f1f1;
+$main: #5696D8;
+$dark: #062668;
+$acclight: #76B6F8;
+$accdark: #165698;
+
+
 body {
   background-color: $white;
   color: $dark;
@@ -21,7 +28,8 @@ input[type="submit"], button {
   background-color: $acclight;
   color: $dark;
   padding: 4px 6px;
-  border: none;
+  // border: none;
+  border: 1px solid $dark;
 }
 input[type="text"] {
   color: $dark;
@@ -33,6 +41,41 @@ input[type="text"]:focus {
   border-color: $main;
 }
 
+.menu {
+  // width: $page-width;
+  width: $page-width - 2 * $padding-width;
+  // margin: auto;
+  border-bottom: 1px solid;
+  height: 100px;
+  padding: 0 0 $padding-width/2 0;
+  margin: 0 $padding-width $padding-width/2 $padding-width;
+  // background-color: green;
+
+  img.logo {
+    height: 100%;
+    float: left;
+  }
+  h1, h2, h3, h4, h5 {
+    display: inline-block;
+    margin-top: 15px;
+    margin-bottom: 0;
+    margin-left: $padding-width;
+    color: $accdark;
+  }
+}
+
+.search-tip {
+  font-size: small;
+  border: 1px solid $accdark;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: $white;
+  margin-bottom: 10px;
+  ol, ul {
+    margin: 0px;
+  }
+}
+
 body > div.container {
   padding: 0px;
   background-color: white;
@@ -40,26 +83,7 @@ body > div.container {
   margin: auto;
   margin-top: $padding-width;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-
-
-  .menu {
-    width: $page-width - 2 * $padding-width;
-    height: 100px;
-    padding: 0 $padding-width $padding-width/2 $padding-width;
-    // background-color: green;
-
-    img.logo {
-      height: 100%;
-      float: left;
-    }
-    h1, h2, h3, h4, h5 {
-      display: inline-block;
-      margin-top: 15px;
-      margin-bottom: 0;
-      margin-left: $padding-width;
-      color: $accdark;
-    }
-  }
+  border-radius: 5px;
 
   .sidebar {
     width: $sidebar-width;
@@ -89,9 +113,18 @@ body > div.container {
 
   .content {
     float: right;
-    width: $page-width - $sidebar-width - $padding-width;
+    width: $page-width - $sidebar-width - 2*$padding-width;
     // background-color: #f5fff5;
     padding-left: $padding-width;
+    padding-right: $padding-width;
+    .search {
+      input {
+        padding: 5px;
+        &[type="text"] {
+          width: 300px;
+        }
+      }
+    }
   }
 
   .footer {

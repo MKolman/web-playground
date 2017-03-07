@@ -1,20 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
-<div>
-    Please search for what you are looking for:
+<div class="search">
     <form method="GET">
-        <input type="text" name="search" value="{{search or ""}}" class="search_input"/>
+        <input placeholder="Search here" type="text" name="search" value="{{search or ''}}" class="search_input"/>
         <input type="submit" value="GO!"/>
     </form>
 </div>
-<div>
-    You searched for <b>{{search|safe}}</b>
+<div class="search-tip">
+    <b> Tip: </b>
+    <ol>
+        <li> Facebook </li>
+        <li> &lt;script&gt; alert(&quot;XSS!&quot;) &lt;/script&gt; </li>
+        <li> Facebook &lt;script&gt; $(function(){$(&quot;a&quot;).attr(&quot;href&quot;, &quot;/evil&quot;);}); &lt;/script&gt; </li>
+        <li>aaa ' OR link LIKE 'http%</li>
+    </ol>
 </div>
 <div>
-    <a href="#"> Link1 </a><br/>
-    <a href="#"> Link2 </a><br/>
-    <a href="#"> Link3 </a><br/>
-    <a href="#"> Link4 </a><br/>
-    <a href="#"> Link5 </a><br/>
+    {% if search %}
+        You searched for <b>{{search|safe}}</b>
+    {% else %}
+        Try searching for something!
+    {% endif %}
 </div>
+{% if results %}
+<div>
+    {% for result in results %}
+        <p>
+            <a href="{{ result[2] }}">{{ result[0] }} </a><br/>
+            {{result[1]}}
+        </p>
+    {% endfor %}
+</div>
+{% endif %}
 {% endblock %}
