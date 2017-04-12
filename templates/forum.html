@@ -1,12 +1,28 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="search">
+<div class="forum">
+    <h1>One forum to rule them all</h1>
+    {% for author, title, content in posts %}
+        <div class="post">
+            <div class="post-header">
+                <b>{{ title | safe }}</b>
+                <small>by {{ author | safe }}</small>
+            </div>
+            <div class="post-content">
+                {{ content | safe }}
+            </div>
+        </div>
+    {% endfor %}
+    {% if session.user %}
+    <h2>Post as {{session.user[0]}}</h2>
     <form method="GET">
-        <input placeholder="Text here" type="text" name="search" value="{{search or ''}}" class="search_input"/>
+        <input type="hidden" name="action" value="new"/>
+        <input placeholder="Title" type="text" name="title"/> <br/>
+        <textarea placeholder="Enter your message here" name="content"></textarea> <br/>
         <input type="submit" value="Post"/>
     </form>
-</div>
-<div>
- Post here
+    {% else %}
+    <h2>Login to post</h2>
+    {% endif %}
 </div>
 {% endblock %}

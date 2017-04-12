@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="login">
+    <form method="GET">
+        <input type="hidden" name="action" value="login">
+        <input placeholder="Full name" type="text" name="full_name" /> <br/>
+        <input placeholder="Username" type="text" name="username" /> <br/>
+        <input placeholder="Password" type="password" name="password" /> <br/>
+        <input type="submit" value="Login"/>
+    </form>
+</div>
+{% endblock %}

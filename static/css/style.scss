@@ -31,14 +31,14 @@ input[type="submit"], button {
   // border: none;
   border: 1px solid $dark;
 }
-input[type="text"] {
+input[type="text"], input[type="password"], textarea {
   color: $dark;
   padding-top: 3px;
   padding-bottom: 3px;
   border: 1px solid $dark;
-}
-input[type="text"]:focus {
-  border-color: $main;
+  &:focus {
+    border-color: $main;
+  }
 }
 
 .menu {
@@ -62,6 +62,15 @@ input[type="text"]:focus {
     margin-left: $padding-width;
     color: $accdark;
   }
+}
+
+.message {
+  margin: 0 $padding-width $padding-width/2 $padding-width;
+  background-color: $white;
+  border: solid 1px $accdark;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
 }
 
 .search-tip {
@@ -89,17 +98,20 @@ body > div.container {
     width: $sidebar-width;
     min-height: 100px;
     float: left;
-    a {
-      display: inline-block;
-      text-align: left;
-      text-decoration: none;
-      color: $dark;
-      // border: solid 1px $dark;
-
+    a, span {
       width: $sidebar-width - $padding-width;
       margin-left: $padding-width;
       // margin-bottom: -1px;
       padding-top: 5px;
+      display: inline-block;
+    }
+
+    a {
+      // display: inline-block;
+      text-align: left;
+      text-decoration: none;
+      color: $dark;
+      // border: solid 1px $dark;
 
       transition: 0.1s color, 0.1s margin-left;
     }
@@ -123,6 +135,29 @@ body > div.container {
         &[type="text"] {
           width: 300px;
         }
+      }
+    }
+    .forum {
+      .post {
+        border: 1px solid;
+        margin-bottom: 1em;
+        padding: 0.5em;
+        .post-header {
+          margin-bottom: 0.5em;
+          border-bottom: solid 1px;
+          small {
+            float: right;
+          }
+        }
+      }
+      input[type="text"], textarea {
+        padding: 0.5em;
+        margin-bottom: 0.5em;
+        width: 100%;
+      }
+      input[type="submit"] {
+        padding: 0.5em;
+        width: 10em;
       }
     }
   }

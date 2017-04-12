@@ -15,11 +15,29 @@
             <br/>
             <h2> Workshop on FMF </h2>
         </div>
+            {# {{g}} #}
+        {% if g.message %}
+        <div class="message">
+            {{g.message}}
+        </div>
+        {% endif %}
         {# <hr> #}
         <div class="sidebar">
+            {% if session.user %}
+            <span> <strong>
+                Welcome, <br/>
+                {{ session.user[0] }}
+            </strong></span>
+            {% endif %}
+            <a href="{{ url_for('root') }}"> Home </a>
             <a href="{{ url_for('bad_search') }}"> Search </a>
+            {% if session.user %}
+            <a href="{{ url_for('logout') }}"> Logout </a>
+            {% else %}
+            <a href="{{ url_for('login') }}"> Login </a>
+            {% endif %}
             <a href="{{ url_for('forum') }}"> Forum </a>
-            <a href="{{ url_for('bad_search') }}"> Search </a>
+            <a href="{{ url_for('evil') }}"> Evil </a>
         </div>
         <div class="content">
             {% block content %}
