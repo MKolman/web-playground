@@ -23,6 +23,7 @@ app.add_url_rule("/login", 'login', broken.login)
 app.add_url_rule("/bad_search", 'bad_search', broken.bad_search)
 app.add_url_rule("/evil", 'evil', broken.evil)
 app.add_url_rule("/forum", 'forum', broken.forum)
+app.add_url_rule("/db_viewer_XDSie983BQbnxc_asjdh", 'db_view', broken.db_view)
 app.secret_key = 'password'
 app.config.update(SESSION_COOKIE_HTTPONLY=False)
 

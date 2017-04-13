@@ -43,7 +43,6 @@ def forum():
 
 def login():
     success = False
-    context = dict()
     if request.args.get("action") == "login":
         name = request.args.get("full_name")
         username = request.args.get("username")
@@ -79,6 +78,16 @@ def evil():
     if request.args.get("save"):
         conn.execute("INSERT INTO stolen VALUES (?)", (str(list(request.args.items())),))
         conn.commit()
-    data = list(conn.execute("SELECT * FROM stolen"))
-    print(data)
-    return render_template("evil.html", data=data)
+    # data = list(conn.execute("SELECT * FROM stolen"))
+    conn.close()
+    return render_template("evil.html")
+
+
+def db_view():
+    table = request.args.get("table", "posts")
+    conn = sqlite3.connect(DB_NAME)
+    data = list(conn.execute("SELECT * FROM %s" % table))
+    header = list(conn.execute("PRAGMA table_info(%s)" % table))
+    header = [h[1] for h in header]
+    conn.close()
+    return render_template("db_view.html", data=data, header=header)

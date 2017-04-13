@@ -8,13 +8,5 @@
         <input type="password" name="password" placeholder="Password" /><br/>
         <input type="submit" value="login" />
     </form>
-
-    {% if data %}
-        <table>
-            {% for line in data %}
-            <tr><td>{{line[0]}}</td></tr>
-            {% endfor %}
-        </table>
-    {% endif %}
 </div>
 {% endblock %}

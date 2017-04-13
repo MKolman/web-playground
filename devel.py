@@ -1,7 +1,10 @@
 import sqlite3
 from settings import DB_NAME
+from flask import session
+
 
 def reset_db():
+    session.clear()
     conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
     c.execute("DROP TABLE IF EXISTS links")
@@ -17,6 +20,7 @@ def reset_db():
         ('Secret FMF-Facebook', 'Secret FMF-Facebook: FMF social website', 'https://www.facebook.com/fmf.ul/', '1'),
         ('Secret Google', 'Secret Google: A search engine', 'https://www.google.com', '1'),
         ('Secret FMF', 'Secret FMF: University of Ljubljana. Faculty official page', 'https://www.fmf.uni-lj.si', '1'),
+        ('Secret Database', 'Database viewer', '/db_viewer_XDSie983BQbnxc_asjdh', '1'),
     ]
     c.executemany("INSERT INTO links VALUES (?,?,?,?)", links)
 
