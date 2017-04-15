@@ -73,7 +73,7 @@ input[type="text"], input[type="password"], textarea {
   text-align: center;
 }
 
-.search-tip {
+.tip {
   font-size: small;
   border: 1px solid $accdark;
   border-radius: 5px;
@@ -159,6 +159,11 @@ body > div.container {
         padding: 0.5em;
         width: 10em;
       }
+    }
+  }
+  .login {
+    input {
+      margin-bottom: 5px;
     }
   }
 

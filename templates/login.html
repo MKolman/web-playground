@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="login">
+    <h1>Login</h1>
+    <p>
+        To create a new account write in your name. <br/>
+        To login with an existing account you can just enter your username and password.
+    </p>
     <form method="GET">
         <input type="hidden" name="action" value="login">
         <input placeholder="Full name" type="text" name="full_name" /> <br/>

