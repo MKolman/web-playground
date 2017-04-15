@@ -42,7 +42,6 @@ def forum():
 
 
 def login():
-    success = False
     if request.args.get("action") == "login":
         name = request.args.get("full_name")
         username = request.args.get("username")
@@ -54,7 +53,6 @@ def login():
             if user[0][-1] == password:
                 session["user"] = user[0]
                 g.message = "Logged in!"
-                success = True
             else:
                 g.message = "Wrong password!"
         else:
@@ -63,14 +61,13 @@ def login():
             conn.commit()
             g.message = "New user created"
             session["user"] = (name, username, password)
-            success = True
 
         print(user)
         conn.close()
-    if success:
-        return redirect("/forum")
-    else:
-        return render_template("login.html")
+    # if success:
+    #     return redirect("/forum")
+    # else:
+    return render_template("login.html")
 
 
 def evil():
