@@ -26,6 +26,8 @@ application.add_url_rule("/forum", 'forum', broken.forum)
 application.add_url_rule("/db_viewer_XDSie983BQbnxc_asjdh", 'db_view', broken.db_view)
 application.secret_key = 'password'
 application.config.update(SESSION_COOKIE_HTTPONLY=False, DEBUG=True)
+application.DEBUG = True
+application.debug = True
 
 if __name__ == "__main__":
     application.run()
