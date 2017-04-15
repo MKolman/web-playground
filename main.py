@@ -5,7 +5,7 @@ import devel
 import broken
 
 application = Flask(__name__)
-application.debug = True
+application.debug = False
 
 
 @application.errorhandler(500)
@@ -37,9 +37,9 @@ application.add_url_rule("/evil", 'evil', broken.evil)
 application.add_url_rule("/forum", 'forum', broken.forum)
 application.add_url_rule("/db_viewer_XDSie983BQbnxc_asjdh", 'db_view', broken.db_view)
 application.secret_key = 'password'
-application.config.update(SESSION_COOKIE_HTTPONLY=False, DEBUG=True)
-# application.DEBUG = True
-application.debug = True
+application.config.update(SESSION_COOKIE_HTTPONLY=False, DEBUG=False)
+# application.DEBUG = False
+# application.debug = False
 
 if __name__ == "__main__":
-    application.run(host='0.0.0.0', debug=True)
+    application.run(host='0.0.0.0', debug=False)
