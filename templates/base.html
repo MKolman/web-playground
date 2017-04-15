@@ -32,10 +32,9 @@
             {% endif %}
             <a href="{{ url_for('root') }}"> Home </a>
             <a href="{{ url_for('bad_search') }}"> Search </a>
+            <a href="{{ url_for('login') }}"> Login </a>
             {% if session.user %}
             <a href="{{ url_for('logout') }}"> Logout </a>
-            {% else %}
-            <a href="{{ url_for('login') }}"> Login </a>
             {% endif %}
             <a href="{{ url_for('forum') }}"> Forum </a>
             <a href="{{ url_for('evil') }}"> Evil </a>

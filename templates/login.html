@@ -2,6 +2,9 @@
 {% block content %}
 <div class="login">
     <h1>Login</h1>
+    {% if session.user %}
+    <p> <b>You are logged is as {{session.user[0]}} ({{session.user[1]}}).</b></p>
+    {% endif %}
     <p>
         To create a new account write in your name. <br/>
         To login with an existing account you can just enter your username and password.
