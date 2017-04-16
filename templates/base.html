@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title> {% block head %}XSS {% endblock %} </title>
+    <title> {% block head %}XSS | {{request.endpoint}}{% endblock %} </title>
     <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
     <link rel="shortcut icon" href="/static/img/console.png"/>
     <script src="/static/js/jquery-3.1.1.min.js"></script>
@@ -31,7 +31,7 @@
             </strong></span>
             {% endif %}
             <a href="{{ url_for('root') }}"> Home </a>
-            <a href="{{ url_for('bad_search') }}"> Search </a>
+            <a href="{{ url_for('search') }}"> Search </a>
             <a href="{{ url_for('login') }}"> Login </a>
             {% if session.user %}
             <a href="{{ url_for('logout') }}"> Logout </a>

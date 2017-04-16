@@ -5,7 +5,7 @@ from flask import render_template, request, make_response, session, redirect, g
 from settings import DB_NAME
 
 
-def bad_search():
+def search():
     search = request.args.get("search")
     results = []
 
@@ -16,7 +16,7 @@ def bad_search():
             # print(conn.fetchall())
     conn.close()
 
-    response = make_response(render_template("bad_search.html", search=search, results=results))
+    response = make_response(render_template("search.html", search=search, results=results))
     response.headers['X-XSS-Protection'] = '0'
 
     return response
