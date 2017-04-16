@@ -59,3 +59,5 @@ escaped.
 
 1. URL change: no sanity checks for url parameters
    * Access all data by changing table name in the url
+2. Unaythorized access
+   * Anyone with a link can access it
