@@ -30,7 +30,7 @@ def logout():
     return redirect("/login")
 
 
-application.add_url_rule("/reset_db", 'reset_db', devel.reset_db)
+application.add_url_rule("/reset_db", 'reset_db', devel.reset_db, methods=["GET", "POST"])
 application.add_url_rule("/login", 'login', broken.login)
 application.add_url_rule("/bad_search", 'bad_search', broken.bad_search)
 application.add_url_rule("/evil", 'evil', broken.evil)

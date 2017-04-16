@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <div>
+            <h1> Reset Database </h1>
+            {% if success %}
+                <p> Reset was successful </p>
+            {% endif %}
+            <form method="POST">
+                <input type="password" name="pass" />
+                <input type="submit" value="reset"/>
+            </form>
+        </div>
+    </body>
+</html>
