@@ -4,7 +4,7 @@ from flask import session, render_template, request
 
 
 def reset_db():
-    if request.method == "POST" and request.form.get("pass") == "cjfytr8732":
+    if request.method == "POST" and request.form.get("pass") == "cjfytr8732DCsjhg87fajbhbf87wefbjh":
         session.clear()
         conn = sqlite3.connect(DB_NAME)
         c = conn.cursor()
