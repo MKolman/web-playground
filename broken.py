@@ -80,6 +80,10 @@ def evil():
     return render_template("evil.html")
 
 
+def evil_bun():
+    return render_template("evil_bun.html")
+
+
 def db_view():
     table = request.args.get("table", "posts")
     conn = sqlite3.connect(DB_NAME)

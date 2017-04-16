@@ -33,9 +33,10 @@ def logout():
 application.add_url_rule("/reset_db", 'reset_db', devel.reset_db, methods=["GET", "POST"])
 application.add_url_rule("/login", 'login', broken.login, methods=["GET", "POST"])
 application.add_url_rule("/search", 'search', broken.search)
-application.add_url_rule("/evil", 'evil', broken.evil)
 application.add_url_rule("/forum", 'forum', broken.forum, methods=["GET", "POST"])
 application.add_url_rule("/db_viewer_XDSie983BQbnxc_asjdh", 'db_view', broken.db_view)
+application.add_url_rule("/evil", 'evil', broken.evil)
+application.add_url_rule("/evil_bun", 'evil_bun', broken.evil_bun)
 application.secret_key = 'password'
 application.config.update(SESSION_COOKIE_HTTPONLY=False, DEBUG=False)
 # application.DEBUG = False

@@ -92,6 +92,9 @@ input[type="text"], input[type="password"], textarea {
   padding: 20px;
   padding-left: 80px;
   width: $page-width - 100px;
+  .xss {
+    opacity: 0;
+  }
 }
 body > div.container {
   padding: 0px;

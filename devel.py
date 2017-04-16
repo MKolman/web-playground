@@ -42,7 +42,8 @@ def reset_db():
         # Insert a row of data
         posts = [
             ('maks', 'Happy day', 'I am having such a great day today and just wanted to share it with everyone!'),
-            ('marii', 'Inconsiderate', 'Did you think how would that make me feel?\nYour literally Hitler for saying this.'),
+            ('marii', 'Inconsiderate', 'Did you think how would that make me feel?<br/>Your literally Hitler for saying this.'),
+            ('jani', 'Much fun!', 'Hello fellow humans.<br/> I made billions of dollars just watching cute bunnies and you can too. Just go to <a href="evil_bun">this link.</a>'),
         ]
         c.executemany("INSERT INTO posts VALUES (?,?,?)", posts)
 
