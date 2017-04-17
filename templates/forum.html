@@ -17,6 +17,7 @@
     <h2>Post as {{session.user[0]}}</h2>
     <form method="GET">
         <input type="hidden" name="action" value="new"/>
+        {# <input type="hidden" name="_csrf_token" value="{{csrf_token()}}"> #}
         <input placeholder="Title" type="text" name="title"/> <br/>
         <textarea placeholder="Enter your message here" name="content"></textarea> <br/>
         <input type="submit" value="Post"/>

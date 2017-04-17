@@ -6,6 +6,9 @@
 {% endif %}
 <form method="POST">
     <input type="text" name="pass" />
+    {% if csrf_token %}
+    <input type="hidden" name="_csrf_token" value="{{csrf_token()}}">
+    {% endif %}
     <input type="submit" value="reset"/>
 </form>
 {% endblock %}

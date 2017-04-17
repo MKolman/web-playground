@@ -1,11 +1,43 @@
 import traceback
-from flask import Flask, render_template, request, make_response, session, redirect
+import uuid
+import sqlite3
+
+from flask import Flask, render_template, request, make_response, session, redirect, abort
 
 import devel
 import broken
+from settings import DB_NAME
 
 application = Flask(__name__)
 application.debug = False
+
+if 0:
+    @application.before_request
+    def csrf_protect():
+        if request.method == "POST":
+            token = session.get('_csrf_token', None)
+            print(token == request.form.get('_csrf_token'))
+            print(repr(token), repr(request.form.get('_csrf_token')))
+            if not token or token != request.form.get('_csrf_token'):
+                abort(403)
+
+    def generate_csrf_token():
+        if '_csrf_token' not in session:
+            session['_csrf_token'] = str(uuid.uuid4())
+        print(session['_csrf_token'])
+        return session['_csrf_token']
+
+    application.jinja_env.globals['csrf_token'] = generate_csrf_token
+
+
+@application.before_request
+def set_user():
+    if "user" in session:
+        username = session.get("user")[1]
+        conn = sqlite3.connect(DB_NAME)
+        user = next(conn.execute("SELECT * FROM users WHERE username=?", (username, )))
+        conn.close()
+        session["user"] = user
 
 
 @application.errorhandler(500)
