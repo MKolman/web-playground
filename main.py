@@ -31,6 +31,7 @@ def logout():
 
 
 application.add_url_rule("/reset_db", 'reset_db', devel.reset_db, methods=["GET", "POST"])
+application.add_url_rule("/pay", 'pay', broken.pay, methods=["GET", "POST"])
 application.add_url_rule("/login", 'login', broken.login, methods=["GET", "POST"])
 application.add_url_rule("/search", 'search', broken.search)
 application.add_url_rule("/forum", 'forum', broken.forum, methods=["GET", "POST"])

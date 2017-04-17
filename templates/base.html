@@ -27,7 +27,8 @@
             {% if session.user %}
             <span id="user-welcome"> <strong>
                 Welcome, <br/>
-                {{ session.user[0] }}
+                {{ session.user[0] }}<br/>
+                Funds: ${{session.user[-1]}}
             </strong></span>
             {% endif %}
             <a href="{{ url_for('root') }}"> Home </a>
@@ -35,6 +36,7 @@
             <a href="{{ url_for('login') }}"> Login </a>
             {% if session.user %}
             <a href="{{ url_for('logout') }}"> Logout </a>
+            <a href="{{ url_for('pay') }}"> Pay </a>
             {% endif %}
             <a href="{{ url_for('forum') }}"> Forum </a>
             <a href="{{ url_for('evil') }}"> Evil </a>

@@ -26,15 +26,15 @@ def reset_db():
         c.executemany("INSERT INTO links VALUES (?,?,?,?)", links)
 
         c.execute("DROP TABLE IF EXISTS users")
-        c.execute('CREATE TABLE users (name text, username text PRIMARY KEY, password text)')
+        c.execute('CREATE TABLE users (name text, username text PRIMARY KEY, password text, funds integer)')
         # Insert a row of data
         users = [
-            ('Maks Kolman', 'maks', 'password'),
-            ('Administrator Strani', 'admin', 'correcthorsebatterystaple'),
-            ('Janez Novak', 'jani', 'banana'),
-            ('Marija Novak', 'marii', 'Tr0ub4dor&3'),
+            ('Maks Kolman', 'maks', 'password', 100),
+            ('Administrator Strani', 'admin', 'correcthorsebatterystaple', 100),
+            ('Janez Novak', 'jani', 'banana', 100),
+            ('Marija Novak', 'marii', 'Tr0ub4dor&3', 100),
         ]
-        c.executemany("INSERT INTO users VALUES (?,?,?)", users)
+        c.executemany("INSERT INTO users VALUES (?,?,?,?)", users)
         c.execute("PRAGMA foreign_keys = ON;")
 
         c.execute("DROP TABLE IF EXISTS posts")

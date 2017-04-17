@@ -41,6 +41,24 @@ def forum():
     return response
 
 
+def pay():
+    if "user" not in session:
+        return redirect("/login")
+    conn = sqlite3.connect(DB_NAME)
+    if request.args.get("action") == "pay":
+        amount = int(request.args.get("amount"))
+        username = request.args.get("username")
+        me = session["user"][1]
+        print(me)
+        conn.execute("UPDATE users SET funds=funds+? WHERE username=?", (amount, username))
+        conn.execute("UPDATE users SET funds=funds-? WHERE username=?", (amount, me))
+        session["user"] = list(conn.execute("SELECT * FROM users WHERE username=?", (me,)))[0]
+        conn.commit()
+    users = list(conn.execute("SELECT * FROM users"))
+    conn.close()
+    return render_template("pay.html", users=users)
+
+
 def login():
     if request.args.get("action") == "login":
         name = request.args.get("full_name")
@@ -50,14 +68,14 @@ def login():
         conn = sqlite3.connect(DB_NAME)
         user = list(conn.execute("SELECT * FROM users WHERE username=?", (username,)))
         if user:
-            if user[0][-1] == password:
+            if user[0][-2] == password:
                 session["user"] = user[0]
                 g.message = "Logged in!"
             else:
                 g.message = "Wrong password!"
         else:
             print((name, username, password))
-            conn.executescript("INSERT INTO users VALUES ('%s','%s','%s')" % (name, username, password))
+            conn.executescript("INSERT INTO users VALUES ('%s','%s','%s','%s')" % (name, username, password, 10))
             conn.commit()
             g.message = "New user created"
             session["user"] = (name, username, password)

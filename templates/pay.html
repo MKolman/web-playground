@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="pay">
+    <h1>Transfer funds</h1>
+    <p>
+        Send money to other users.
+    </p>
+    <form method="GET">
+        <input type="hidden" name="action" value="pay">
+        <select name="username">
+        {% for user in users %}
+            <option value="{{user[1]}}">{{user[0]}} ({{user[1]}})</option>
+        {% endfor %}
+        </select><br/>
+        <label><input type="radio" name="amount" value="1" checked="" /> $1</label>
+        <label><input type="radio" name="amount" value="10" /> $10</label>
+        <label><input type="radio" name="amount" value="100" /> $100</label><br/>
+        <input type="submit" value="Pay!"/>
+    </form>
+</div>
+{% endblock %}
