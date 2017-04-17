@@ -35,9 +35,13 @@ def set_user():
     if "user" in session:
         username = session.get("user")[1]
         conn = sqlite3.connect(DB_NAME)
-        user = next(conn.execute("SELECT * FROM users WHERE username=?", (username, )))
+        try:
+            user = next(conn.execute("SELECT * FROM users WHERE username=?", (username, )))
+            session["user"] = user
+        except sqlite3.OperationalError as e:
+            print("Uuuuuhm..... What?")
+            session.pop("user")
         conn.close()
-        session["user"] = user
 
 
 @application.errorhandler(500)
