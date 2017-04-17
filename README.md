@@ -1,6 +1,10 @@
 # Web Playground
 A web application demonstrating web vulnerabilities. Testing XSS, script injection, SQL injection,...
 
+This is just an uncontrollably broken application. Never put this on any server
+of major or minor importance. There is no guarantee that this app cannot be used
+to steal everything and crash the server.
+
 # Known issues
 
 Here is a list of all known voulnarbilities on the site
@@ -29,6 +33,15 @@ escaped.
    * Test shows stack trace and actual code: `'`
    * Delete tables: `'); DROP TABLE users;('`
    * Change all passwords: `'); UPDATE users SET password='funfun';`
+
+## Pay
+
+1. Parameters unchecked: editing GET parameters lets users transfer any amount
+   * Send money to yourself: `&amount=-100`
+2. GET: Using GET method instead of POST
+   * Send funds when seeing an image: `<img src="/pay?action=pay&username=maks&amount=100"/>`
+3. CSRF: site does not check for origin of the request:
+   * Send funds when seeing a script: `$.get("/pay?action=pay&username=maks&amount=100")`
 
 ## Forum
 
