@@ -60,10 +60,11 @@ def pay():
 
 
 def login():
-    if request.args.get("action") == "login":
-        name = request.args.get("full_name")
-        username = request.args.get("username")
-        password = request.args.get("password")
+    data = request.args
+    if data.get("action") == "login":
+        name = data.get("full_name")
+        username = data.get("username")
+        password = data.get("password")
 
         conn = sqlite3.connect(DB_NAME)
         user = list(conn.execute("SELECT * FROM users WHERE username=?", (username,)))
