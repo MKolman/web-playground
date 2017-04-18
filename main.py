@@ -38,7 +38,7 @@ def set_user(response):
         try:
             user = next(conn.execute("SELECT * FROM users WHERE username=?", (username, )))
             session["user"] = user
-        except sqlite3.OperationalError as e:
+        except Exception as e:
             print("Uuuuuhm..... What?")
             session.pop("user")
         conn.close()
