@@ -30,8 +30,8 @@ if 0:
     application.jinja_env.globals['csrf_token'] = generate_csrf_token
 
 
-@application.before_request
-def set_user():
+@application.after_request
+def set_user(response):
     if "user" in session:
         username = session.get("user")[1]
         conn = sqlite3.connect(DB_NAME)
@@ -42,6 +42,7 @@ def set_user():
             print("Uuuuuhm..... What?")
             session.pop("user")
         conn.close()
+    return response
 
 
 @application.errorhandler(500)
