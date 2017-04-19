@@ -2,14 +2,18 @@
 {% block content %}
 <div class="forum">
     <h1>One forum to rule them all</h1>
-    {% for author, title, content in posts %}
+    {% for author, title, content, img in posts %}
         <div class="post">
             <div class="post-header">
                 <b>{{ title | safe }}</b>
                 <small>by {{ author | safe }}</small>
             </div>
             <div class="post-content">
+                {% if img %}
+                    <img src="{{img}}"/>
+                {% endif %}
                 {{ content | safe }}
+                <span class="clearfix">.</span>
             </div>
         </div>
     {% endfor %}
@@ -19,6 +23,7 @@
         <input type="hidden" name="action" value="new"/>
         {# <input type="hidden" name="_csrf_token" value="{{csrf_token()}}"> #}
         <input placeholder="Title" type="text" name="title"/> <br/>
+        <input placeholder="Image (optional)" type="text" name="img"/> <br/>
         <textarea placeholder="Enter your message here" name="content"></textarea> <br/>
         <input type="submit" value="Post"/>
     </form>

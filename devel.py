@@ -38,14 +38,14 @@ def reset_db():
         c.execute("PRAGMA foreign_keys = ON;")
 
         c.execute("DROP TABLE IF EXISTS posts")
-        c.execute('CREATE TABLE posts (author text REFERENCES users(username), title text, content text)')
+        c.execute('CREATE TABLE posts (author text REFERENCES users(username), title text, content text, img text)')
         # Insert a row of data
         posts = [
-            ('maks', 'Happy day', 'I am having such a great day today and just wanted to share it with everyone!'),
-            ('marii', 'Inconsiderate', 'Did you think how would that make me feel?<br/>Your literally Hitler for saying this.'),
-            ('jani', 'Much fun!', 'Hello fellow humans.<br/> I made billions of dollars just watching cute bunnies and you can too. Just go to <a href="evil_bun">this link.</a>'),
+            ('maks', 'Happy day', 'I am having such a great day today and just wanted to share it with everyone!', 'http://icons.iconarchive.com/icons/jonathan-rey/simpsons/256/Homer-Simpson-04-Happy-icon.png'),
+            ('marii', 'Inconsiderate', 'Did you think how would that make me feel?<br/>Your literally Hitler for saying this.', ''),
+            ('jani', 'Much fun!', 'Hello fellow humans.<br/> I made billions of dollars just watching cute bunnies and you can too. Just go to <a href="evil_bun">this link.</a>', 'https://at-cdn-s01.audiotool.com/2013/02/26/documents/csCEKYagXloFZUwjZ9Y7aUlZ6PGP/0/cover256x256-df6ac55d007f48aaa31b00bdf487e9e2.jpg'),
         ]
-        c.executemany("INSERT INTO posts VALUES (?,?,?)", posts)
+        c.executemany("INSERT INTO posts VALUES (?,?,?,?)", posts)
 
 
         c.execute("DROP TABLE IF EXISTS stolen")

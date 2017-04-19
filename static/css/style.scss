@@ -163,6 +163,18 @@ body > div.container {
             float: right;
           }
         }
+        .post-content {
+          display: inline-block;
+          width: 100%;
+          img {
+            float: right;
+            max-height: 100px;
+            max-width: 100px;
+          }
+          .clearfix {
+            clear: both;
+          }
+        }
       }
       input[type="text"], textarea {
         padding: 0.5em;

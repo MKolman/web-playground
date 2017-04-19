@@ -24,15 +24,16 @@ def search():
 
 def forum():
     conn = sqlite3.connect(DB_NAME)
-    if "user" in session and request.args.get("action") == "new":
-        d = request.args
+    d = request.args
+    if "user" in session and d.get("action") == "new":
         user = session.get("user")[1]
         title = d.get("title")
         content = d.get("content")
+        img = d.get("img")
         if user and title and content:
-            conn.execute("INSERT INTO posts VALUES (?,?,?)", (user, title, content))
+            conn.execute("INSERT INTO posts VALUES (?,?,?,?)", (user, title, content, img))
 
-    posts = list(conn.execute("SELECT users.name, posts.title, posts.content FROM posts JOIN users ON posts.author=users.username"))
+    posts = list(conn.execute("SELECT users.name, posts.title, posts.content, posts.img FROM posts JOIN users ON posts.author=users.username"))
     conn.commit()
     conn.close()
     print(posts)
