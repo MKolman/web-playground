@@ -11,7 +11,7 @@ from settings import DB_NAME
 application = Flask(__name__)
 application.debug = False
 
-if 0:
+if 1:
     @application.before_request
     def csrf_protect():
         if request.method == "POST":

@@ -12,7 +12,7 @@ def search():
     conn = sqlite3.connect(DB_NAME)
     if search:
         for word in search.split(" ", 1):
-            results += conn.execute("SELECT * FROM links WHERE hide=0 and lower(desc) LIKE '%%%s%%'" % word)
+            results += conn.execute("SELECT * FROM links WHERE hide=0 and lower(desc) LIKE ?", ("%"+word+"%",))
             # print(conn.fetchall())
     conn.close()
 
@@ -24,7 +24,7 @@ def search():
 
 def forum():
     conn = sqlite3.connect(DB_NAME)
-    d = request.args
+    d = request.form
     if "user" in session and d.get("action") == "new":
         user = session.get("user")[1]
         title = d.get("title")
@@ -46,9 +46,9 @@ def pay():
     if "user" not in session:
         return redirect("/login")
     conn = sqlite3.connect(DB_NAME)
-    if request.args.get("action") == "pay":
-        amount = int(request.args.get("amount"))
-        username = request.args.get("username")
+    if request.form.get("action") == "pay" and request.form.get("action") in ["1", "10", "100"]:
+        amount = int(request.form.get("amount"))
+        username = request.form.get("username")
         me = session["user"][1]
         print(me)
         conn.execute("UPDATE users SET funds=funds+? WHERE username=?", (amount, username))
@@ -61,7 +61,7 @@ def pay():
 
 
 def login():
-    data = request.args
+    data = request.form
     if data.get("action") == "login":
         name = data.get("full_name")
         username = data.get("username")
@@ -77,7 +77,7 @@ def login():
                 g.message = "Wrong password!"
         else:
             print((name, username, password))
-            conn.executescript("INSERT INTO users VALUES ('%s','%s','%s','%s')" % (name, username, password, 10))
+            conn.execute("INSERT INTO users VALUES (?,?,?, ?)", (name, username, password, 10))
             conn.commit()
             g.message = "New user created"
             session["user"] = (name, username, password)

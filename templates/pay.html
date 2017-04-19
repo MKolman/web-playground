@@ -5,9 +5,9 @@
     <p>
         Send money to other users.
     </p>
-    <form method="GET">
+    <form method="POST">
         <input type="hidden" name="action" value="pay">
-        {# <input type="hidden" name="_csrf_token" value="{{csrf_token()}}"> #}
+        <input type="hidden" name="_csrf_token" value="{{csrf_token()}}">
         <select name="username">
         {% for user in users %}
             <option value="{{user[1]}}">{{user[0]}} ({{user[1]}})</option>
