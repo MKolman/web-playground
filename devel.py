@@ -29,7 +29,7 @@ def reset_db():
         c.execute('CREATE TABLE users (name text, username text PRIMARY KEY, password text, funds integer)')
         # Insert a row of data
         users = [
-            ('Maks Kolman', 'maks', 'password', 100),
+            ('Maks Kolman', 'maks', '123456', 100),
             ('Administrator Strani', 'admin', 'correcthorsebatterystaple', 100),
             ('Janez Novak', 'jani', 'banana', 100),
             ('Marija Novak', 'marii', 'Tr0ub4dor&3', 100),
